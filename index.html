@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+function animo() {
+let userInput = parseInt(document.querySelector(`#Age`).value);
+let dogMultiplier = 149597871;
+let catAge = userInput - 1;
+let catMultiplier = 15 + catAge * 4;
+let AnimalId = document.querySelector(`#AnimalId`).value;
+let animal = userInput
+
+     if (AnimalId == `Dog`) {
+         animal = dogMultiplier * userInput;
+         document.querySelector("#result").innerHTML = animal;
+
+     } else if (AnimalId == `Cat`) {
+         animal = catMultiplier;
+         document.querySelector("#result").innerHTML = animal;
+     } else {
+         animal = undefined;
+        document.querySelector(`#result`).innerHTML = `No multipier selected`;
+
+     }
+     
+     
+}
+//     function calculateAgeToTarget(age, target) {
+//         let rangeInYears = target - age
+//         console.log(`Your dog's human age is ${age}`)
+//         console.log(`----- my age is ${age} and my range is ${rangeInYears}`)
+
+//    }
+
+//  calculateAgeToTarget(age2,100)
+
+
+
+
+//   function CalculateDogYears(age1, dogYears) {
+//        let finalAge = age1 / dogYears
+//        console.log(`calling CalculateDogYears(${age1})`)
+//        console.log(`${age1} Human years is ${finalAge} dog years`)
+
+
+
+//    }
+
+ 
+  
+
+
+</script>
+
+</head>
+<body>
+
+   <!-- <p id="userInput"><script>document.write(cat)</script></p> -->
+
+<form>
+    value 1: <input type="text" id="Age">
+    <!-- value 2: <input type="text" id="value2"> -->
+    operator: <select id="AnimalId">
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+        <option value="Hamster">Hamster</option>
+        
+
+    </select>
+    <button type="button" onclick="animo()">Calculate</button>
+
+</form>
+<p id="result"></p>
+</body>
+</html>
