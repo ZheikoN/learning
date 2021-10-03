@@ -28,7 +28,7 @@ if (countProduct >= 2) {
     console.log(`Shopping cart is Empty`);
 }
 
-console.log(`Products in your Shopping Cart: ${shoppingCart.join()}`)
+console.log(`Products in your Shopping Cart: ${shoppingCart.join()}`);
 
 // function CalcGrandTotal() {
 
