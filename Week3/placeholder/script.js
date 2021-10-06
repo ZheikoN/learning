@@ -6,7 +6,29 @@ function init() {
 
     ShowGreeting();
     ShowDate();
+
+    const planets = ['mercury', 'venus', 'earth'];
+    let htmlToWrite = WriteList(planets);
+    WriteMessagePanel(htmlToWrite);
 }
+
+function WriteList(listOfItems) {
+htmlString = '<ul>';
+for(const item of listOfItems) {
+    htmlString += `<li>${item}</li>`;
+}
+
+htmlString += '</ul>'
+return htmlString;
+}
+
+function WriteMessagePanel(content) {
+
+    let messagePanel = document.getElementById("messagePanel");
+    messagePanel.innerHTML = content;
+}
+
+
 let counter = 0;
 
 // function to show greeting
@@ -61,6 +83,14 @@ function ResetEmail() {
     if ( emailInput.value == ``) {
         emailInput.value = `Enter your email for newsletter`
     };
-    
+
 
 }
+
+function Calculate() {
+    let firstNumber = parseInt(document.querySelector(`#firstNumber`).value);
+    let secondNumber = parseInt(document.querySelector(`#secondNumber`).value);
+
+    document.querySelector("#result").innerHTML = firstNumber + secondNumber;
+}
+
