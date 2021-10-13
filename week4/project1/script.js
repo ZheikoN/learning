@@ -4,10 +4,30 @@ function init() {
 
     const htmlContent = renderCitiesAsHTML();
     renderCityListing(htmlContent);
-    console.log(htmlContent);
-    renderCitySelectList(listOfCities)
-    console.log(htmlContent);
 
+    renderCitySelectList(listOfCities)
+
+    setSelectedCity(listOfCities[0]);
+
+    console.log(htmlContent);
+}
+
+function onCityChange(e) {
+    const currentIndex = e.selectedIndex;
+    const currentValue = e.value;
+    const currentText = e.options[currentIndex].text;
+    console.log(`city has changed: ${currentIndex}`);
+    console.log(`city has changed to: ${currentValue}`);
+    console.log(`city has changed to: ${currentText}`);
+
+    setSelectedCity(currentText);
+
+}
+
+function setSelectedCity(city) {
+
+    const selectedObject = document.querySelector('#selectedCity');
+    selectedObject.value = city;
 }
 
 function renderCityListing(htmlContent) {

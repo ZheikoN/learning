@@ -9,15 +9,20 @@
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-</head>
+<style>
+    .mb15 {margin-bottom: 15px;}
+
+</style>
+    </head>
 
 <body onload="init()">
 
     <div class="container">
         <div class="row">
             <div class=" col">
+                <input id="selectedCity" class="form-control mb15" readonly/>
 
-                <select class="form-control" id="selectListOfCities">
+                <select class="form-control" id="selectListOfCities" onchange="onCityChange(this)">
                     <option value="1">one</option>
                     <option value="1">one</option>
                     <option value="1">one</option>
