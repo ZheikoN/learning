@@ -56,11 +56,6 @@ function onCityChange(e) {
 
 
 
-
-
-
-
-
 }
 
 function setSelectedCity(city) {
