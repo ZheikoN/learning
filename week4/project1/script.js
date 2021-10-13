@@ -12,6 +12,23 @@ function init() {
     console.log(htmlContent);
 }
 
+function addCity() {
+// grab the contents of the add city field
+    const selectedInput = document.querySelector("#tbAddCity");
+    const addCityItem = selectedInput.value;
+
+
+// push the item onto the end of selct box
+    const selectedObject = document.querySelector('#selectListOfCities');
+    let option = document.createElement("option");
+    option.text = addCityItem;
+    selectedObject.add(option, null);
+
+    // clear add city field
+    selectedInput.value = '';
+
+}
+
 function onCityChange(e) {
     const currentIndex = e.selectedIndex;
     const currentValue = e.value;
