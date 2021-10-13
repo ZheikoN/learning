@@ -6,7 +6,7 @@ function init() {
     renderCityListing(htmlContent);
     console.log(htmlContent);
     renderCitySelectList(listOfCities)
-
+    console.log(htmlContent);
 
 }
 
@@ -19,18 +19,18 @@ function renderCityListing(htmlContent) {
 
 function renderCitySelectList(listOfCities) {
 
-const selectedObject = document.querySelector('#selectListOfCities');
+    const selectedObject = document.querySelector('#selectListOfCities');
 
-selectedObject.length = 0;
+    selectedObject.length = 0;
 
-listOfCities.forEach((city,index) => {
+    listOfCities.forEach((city, index) => {
 
-    let option = document.createElement("option");
-    option.value = index;
-    option.text = city;
-    selectedObject.add(option,null);
+        let option = document.createElement("option");
+        option.value = index;
+        option.text = city;
+        selectedObject.add(option, null);
 
-})
+    })
 
 
 
