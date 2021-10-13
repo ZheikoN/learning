@@ -1,8 +1,9 @@
-let listOfCities = ['Dublin', 'Cork', 'Limerick', 'Killarney'];
+
 
 function init() {
 
-    const htmlContent = renderCitiesAsHTML();
+    let listOfCities = ['Dublin', 'Cork', 'Limerick', 'Killarney'];
+    const htmlContent = renderCitiesAsHTML(listOfCities);
     renderCityListing(htmlContent);
 
     renderCitySelectList(listOfCities)
@@ -13,12 +14,12 @@ function init() {
 }
 
 function addCity() {
-// grab the contents of the add city field
+    // grab the contents of the add city field
     const selectedInput = document.querySelector("#tbAddCity");
     const addCityItem = selectedInput.value;
 
 
-// push the item onto the end of selct box
+    // push the item onto the end of selct box
     const selectedObject = document.querySelector('#selectListOfCities');
     let option = document.createElement("option");
     option.text = addCityItem;
@@ -27,6 +28,22 @@ function addCity() {
     // clear add city field
     selectedInput.value = '';
 
+    let cities = [];
+    for (let i = 0; i < selectedObject.options.length; i++) {
+
+        cities.push(selectedObject.options[i].text);
+
+    }
+
+    const htmlContent = renderCitiesAsHTML(cities);
+    renderCityListing(htmlContent);
+
+}
+
+function resetCityListing() {
+    const selectedObject = document.querySelector('#selectListOfCities');
+
+    selectedObject.length = 0;
 }
 
 function onCityChange(e) {
@@ -37,7 +54,12 @@ function onCityChange(e) {
     console.log(`city has changed to: ${currentValue}`);
     console.log(`city has changed to: ${currentText}`);
 
-    setSelectedCity(currentText);
+
+
+
+
+
+
 
 }
 
@@ -73,7 +95,7 @@ function renderCitySelectList(listOfCities) {
 
 }
 
-function renderCitiesAsHTML() {
+function renderCitiesAsHTML(listOfCities) {
 
     let htmlContent = [];
 
