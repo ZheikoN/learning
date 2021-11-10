@@ -1,4 +1,4 @@
-var fleetSalesObject = {
+const fleetSalesObject = {
     "Nissan": {
         "Qashqai": ["Saloon", "Hatchback"],
         "Navara": ["4-Door", "King Cab"]
