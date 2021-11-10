@@ -11,32 +11,35 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Document</title>
     <style>
-p.second { color: red;}
-p.striped {background-color: cyan;}
-
+        #messagePanel {
+            width: 500px;
+          
+            border: solid 1px red;
+            padding: 25px;
+        }
     </style>
 </head>
+
 <body>
-    <div>
-<p>this is the main introductory paragraph</p>
-<p class="second">this is paragraph 1</p>
-<p>this is paragraph 2</p>
-<p>this is paragraph 3</p>
-<p>this is paragraph 4</p>
-<p>this is paragraph 5</p>
-<p>this is paragraph 6</p>
+  
+
+    <div id="messagePanel" class="container"></div>
+<div class="container">
+    <div class="row">
+      <div class="col">  <button class="btn btn-primary" id="btnLoadMovies"> Load Movies</button></div>
+      <div class="col">
+    
+    <table class="table table-bordered">
+        <thead>
+           <tr>
+               <th>Movie</th>
+               <th>Year</th>
+           </tr>
+        </thead>
+        <tbody id="movieBody"></tbody>
+    </table>
 </div>
-<hr />
-<button onclick="toggle()">Toggle</button>
-<button id="btnToggle">Toggle with jquery</button>
-<button id="btnShowDate">Show Date</button>
-<button id="btnHideFirst">hide first</button>
-<button id="btnShowFirst">Show first</button>
-<button id="btnAppend">Append elements</button>
-<button id="btnStyle">Apply a Style</button>
-
-
-
-
+</div>
 </body>
+
 </html>
