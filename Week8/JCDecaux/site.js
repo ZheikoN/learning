@@ -13,15 +13,11 @@ function initJquery() {
 
 function SetupMovieLoader() {
 
-    $('#table1, #table2').hide();
-
-    $('#seating').hide();
-
     $('#messagePanel').hide();
 
     $('#btnLoadMovies').on('click', function () {
 
-        const url = 'https://college-movies.herokuapp.com/';
+        const url = 'https://api.jcdecaux.com/vls/v1/stations?contract=dublin&apiKey=3e6e7e1145a6fb001eec57a9e7e0422dbaf79ffa';
 
         $.getJSON(url, function (jsondata) {
             movieListings = jsondata;
@@ -42,10 +38,10 @@ function RenderMovieDataAsTable(movieListing) {
     for (const movie of movieListing) {
         htmlString.push("<tr>")
        
-        const { title, year, director, id, cast, ...rest } = movie;
+        const { number, contract_name, name, address, position, ...rest } = movie;
 
-        const btnDetails= `<button class="btn btn-success" onclick="renderMovieDetail(${id})">Details</button>`;
-        htmlString.push(`<td>${title}</td><td>${year}</td><td>${btnDetails}</td>`);
+        const btnDetails= `<button class="btn btn-success" onclick="renderMovieDetail(${address})">Details</button>`;
+        htmlString.push(`<td>${number}</td><td>${contract_name}</td><td>${name}</td><td>${address}</td><td><a href="https://www.google.com/search?q=${position.lat},${position.lng}" target="_blank">Click for location on map</a></td>`);
      
 
         htmlString.push('</tr>')
@@ -53,9 +49,6 @@ function RenderMovieDataAsTable(movieListing) {
 
     $('tbody#movieBody').append(htmlString.join(" "));
    // WriteToMessagePanel(htmlString.join(" "));
-
-   $('#table1').show();
-
 
 }
 function RenderMovieData(movieListing) {
@@ -72,9 +65,9 @@ function RenderMovieData(movieListing) {
 
         // Object destructuring
 
-        const { title, year, director, id, cast, ...rest } = movie;
+        const { number, contract_name, name, address, position, ...rest } = movie;
 
-        htmlString.push(`<li>${title} : ${year}`);
+        htmlString.push(`<li>${number} : ${contract_name}`);
         htmlString.push('<ol>')
 
 
@@ -99,16 +92,16 @@ function WriteToMessagePanel(msg) {
 
 function renderMovieDetail (movieId) {
 
-    const movieDetail = movieListings.find(x=> x.id === movieId);
+    const movieDetail = movieListings.find(x=> x.address === movieId);
     console.log(movieDetail);
     htmlString = [];
     htmlString.push("<tr>")
        
-    const { title, year, director, id, cast, ...rest } = movieDetail;
+    const { number, contract_name, name, address, position, ...rest } = movieDetail;
 
-    const btnDetails= `<button class="btn btn-success" onlick="renderMovieDetail(${id})">details</button>`
+    const btnDetails = `<button class="btn btn-success" onlick="renderMovieDetail(${address})">details</button>`
     
-    htmlString.push(`<td>${title}</td><td>${year}</td><td>${director}</td>`);
+    htmlString.push(`<td>${number}</td><td>${contract_name}</td><td>${director}</td>`);
  
 
     htmlString.push('</tr>')
@@ -116,7 +109,5 @@ function renderMovieDetail (movieId) {
 
     $('tbody#movieDetailBody').html(htmlString.join(" "));
    console.log(`rendering detail for movie ${movieId}`) 
-   $('#table2').show();
-   $('#seating').show();
 }
 

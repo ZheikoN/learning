@@ -7,39 +7,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="site.js"></script>
+    <script src="seating.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Document</title>
     <style>
         #messagePanel {
             width: 500px;
-          
+
             border: solid 1px red;
             padding: 25px;
         }
+        .seat {
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+                border: solid 1px red;
+                float: left;
+            }
+        .reserved {
+            background-color: palegoldenrod;
+        }
+
+        .selected {
+            background-color: greenyellow;
+        }
+        
+        .clear {
+
+        }
+       
     </style>
 </head>
 
 <body>
-  
+
 
     <div id="messagePanel" class="container"></div>
-<div class="container">
-    <div class="row">
-      <div class="col">  <button class="btn btn-primary" id="btnLoadMovies"> Load Movies</button></div>
-      <div class="col">
-    
-    <table class="table table-bordered">
-        <thead>
-           <tr>
-               <th>Movie</th>
-               <th>Year</th>
-           </tr>
-        </thead>
-        <tbody id="movieBody"></tbody>
-    </table>
-</div>
-</div>
+    <div class="container">
+        <div class="row">
+
+           
+
+            <div class="col"> <button class="btn btn-primary" id="btnLoadMovies"> Load Movies</button></div>
+            <div class="col">
+<div class="row">
+                <table class="table table-bordered" id="table1">
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody id="movieBody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row"><span id="seatsChosen"></span></div>
+        </div>
+
+        <div class="col">
+            <div class="row">
+            <table class="table table-bordered" id="table2">
+                <thead>
+                    <tr>
+                        <th>Movie</th>
+                        <th>Year</th>
+                        <th>Director</th>
+                    </tr>
+                </thead>
+                <tbody id="movieDetailBody"></tbody>
+            </table></div>
+        
+
+        <div class="row" id="seating">
+
+            <div class="seat reserved" data-row="1" data-col="1"></div>
+            <div class="seat" data-row="1" data-col="2"></div>
+            <div class="seat" data-row="1" data-col="3"></div>
+            <div class="seat" data-row="1" data-col="4"></div>
+<div class="clear"></div>
+            <div class="seat reserved" data-row="2" data-col="1"></div>
+            <div class="seat" data-row="2" data-col="2"></div>
+            <div class="seat" data-row="2" data-col="3"></div>
+            <div class="seat" data-row="2" data-col="4"></div>
+        </div>
+        <div class="row"><span id="seatsChosen"></span></div>
+    </div>
 </body>
 
 </html>
